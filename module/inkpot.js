@@ -42,6 +42,7 @@ const SKILLS = [
 ];
 
 async function displayNarrativeSideEffect(entity, options, userId) {
+  if (userId != game.userId) return;
   const skillRegex = new RegExp(' uses (' + SKILLS.join('|') + ')\.$', 'i')
   if (skillRegex.test(entity.flavor || '')) {
     const dieResult = entity.rolls[0].dice[0].total;
